@@ -1,6 +1,7 @@
 # PHP/Laravel Coding Challenge
 
 This repository contains the implementation of a PHP/Laravel coding challenge designed to test skills in building flexible, maintainable, and scalable backend components.
+Developer: Oskie Villarin
 
 ## 📋 Table of Contents
 
@@ -74,6 +75,23 @@ php artisan db:seed
 }
 ```
 
+**Related Files**
+
+```
+app/Services/RuleEvaluator.php
+
+app/Models/User.php
+app/Models/Rule.php
+
+database/migrations/xxxx_xx_xx_create_users_table.php
+database/migrations/xxxx_xx_xx_create_rules_table.php
+database/seeders/UserSeeder.php
+database/seeders/RuleSeeder.php
+
+tests/Feature/RuleEngineTest.php
+
+```
+
 ---
 
 ### 2. Nested Eloquent Search Filter
@@ -95,6 +113,23 @@ php artisan db:seed
   "appointment.status": "confirmed",
   "location.city": "Dallas"
 }
+```
+
+**Related Files Structure:**
+
+```
+app/Utils/Filters/NestedFilter.php
+
+app/Models/User.php
+app/Models/Appointment.php
+app/Models/Patient.php
+
+database/migrations/xxxx_xx_xx_create_users_table.php
+database/migrations/xxxx_xx_xx_create_patients_table.php
+database/migrations/xxxx_xx_xx_create_appointments_table.php
+database/seeders/PatientAppointmentSeeder.php
+
+tests/Feature/NestedFilterTest.php
 ```
 
 ---
@@ -119,12 +154,29 @@ public static $states = [
 ];
 ```
 
+**Related Files Structure:**
+
+```
+app/Utils/Traits/StateMachine.php
+app/Events/ModelTransitioning.php
+app/Events/ModelTransitioned.php
+
+app/Models/Document.php
+
+database/migrations/xxxx_xx_xx_create_documents_table.php
+database/seeders/DocumentSeeder.php
+
+tests/Feature/StateMachineTest.php
+```
+
 ---
 
 ## Testing
 
 ```bash
 php artisan test
+# or
+vendor/bin/phpunit
 ```
 
 Tests cover:

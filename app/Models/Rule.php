@@ -9,7 +9,12 @@ class Rule extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['action', 'rules'];
+    protected $fillable = [
+        'action', 
+        'rules'
+    ];
     
-    protected $casts = ['rules' => 'array'];
+    protected $casts = [
+        'rules' => 'array'
+    ];
 }

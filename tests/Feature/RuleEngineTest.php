@@ -59,13 +59,13 @@ class RuleEngineTest extends TestCase
      */
     public function test_user_can_submit_form_with_valid_rules()
     {   
-        // Create a staff user
+        // Assign: Create a staff user
         $staffUser = User::factory()->create([
             'role' => 'staff',
             'email_verified_at' => now()
         ]);
 
-        // Create a rules for the action 'submit_form'
+        // Assign: Create a rules for the action 'submit_form'
         $ruleSet = Rule::create([
             'action' => 'submit_form',
             'rules' => [
@@ -88,13 +88,13 @@ class RuleEngineTest extends TestCase
      */
     public function test_user_cannot_submit_form_with_invalid_rules()
     {
-        // Create a regular user
+        // Assign: Create a regular user
         $regularUser = User::factory()->create([
             'role' => 'user',   
             'email_verified_at' => null // Not verified
         ]);
 
-        // Create a rules with conditions that the user does not meet
+        // Assign: Create a rules with conditions that the user does not meet
         $ruleSet = Rule::create([
             'action' => 'submit_form',
             'rules' => [
@@ -117,13 +117,13 @@ class RuleEngineTest extends TestCase
      */
     public function test_user_cannot_perform_action_with_one_rule_failing()
     {
-        // Create a user with a role that does not meet the rules
+        // Assign: Create a user with a role that does not meet the rules
         $user = User::factory()->create([
             'role' => 'guest',
             'email_verified_at' => now()
         ]);
 
-        // Create a rules with one failing condition
+        // Assign: Create a rules with one failing condition
         $ruleSet = Rule::create([
             'action' => 'submit_form',
             'rules' => [
@@ -146,10 +146,10 @@ class RuleEngineTest extends TestCase
      */
     public function test_unsupported_operator_throws_exception()
     {
-        // Create a user
+        // Assign: Create a user
         $user = User::factory()->create();
 
-        // Define a rule with an unsupported operator
+        // Assign: Define a rule with an unsupported operator
         $ruleSet = [
             ['field' => 'role', 'operator' => null, 'value' => 'user']
         ];

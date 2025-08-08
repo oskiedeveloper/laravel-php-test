@@ -11,6 +11,11 @@ class Document extends Model
     use HasFactory;
     use StateMachine;
 
+    protected $fillable = [
+        'title',
+        'state'
+    ];
+
     public static $states = [
         'draft' => ['submitted'],
         'submitted' => ['approved', 'rejected'],
